@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OnLineOrder.Models
 {
+    [Table("Orders")]
     public class Orders
     {
         [Required]
@@ -15,6 +16,7 @@ namespace OnLineOrder.Models
         public DateTime RowCreatedDate { get; set; }
         [ForeignKey("Customer")]
         public int CustomerId { get; set; }
+        public Customer Customer { get; set; }
         public List<OrderItems> OrderItems { get; set; }
     }
 }

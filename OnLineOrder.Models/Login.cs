@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OnLineOrder.Models
 {
+    [Table("Logins")]
     public class Login
     {
         [Required]
@@ -16,5 +17,6 @@ namespace OnLineOrder.Models
         public string Password { get; set; }
         [ForeignKey("Customer")]
         public int CustomerId { get; set; }
+        public Customer Customer { get; set; }
     }
 }

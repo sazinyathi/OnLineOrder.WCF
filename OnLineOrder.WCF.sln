@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnLinerOrder.Interfaces", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnLineOrder.Models", "OnLineOrder.Models\OnLineOrder.Models.csproj", "{A14C5F7B-1E03-484C-B94F-80CD39E84A9E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnLineOrder.Repositories", "OnLineOrder.Repositories\OnLineOrder.Repositories.csproj", "{E0643020-0B7D-4293-9FE4-7740288FF5D9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{A14C5F7B-1E03-484C-B94F-80CD39E84A9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A14C5F7B-1E03-484C-B94F-80CD39E84A9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A14C5F7B-1E03-484C-B94F-80CD39E84A9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0643020-0B7D-4293-9FE4-7740288FF5D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0643020-0B7D-4293-9FE4-7740288FF5D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0643020-0B7D-4293-9FE4-7740288FF5D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0643020-0B7D-4293-9FE4-7740288FF5D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

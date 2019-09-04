@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OnLineOrder.Models
 {
+    [Table("Products")]
     public class Product
     {
         [Required]
@@ -14,7 +16,7 @@ namespace OnLineOrder.Models
         [MaxLength(50)]
         public string ProductDescription { get; set; }
         [Required]
-         public decimal Price { get; set; }
+        public decimal Price { get; set; }
 
     }
 }
