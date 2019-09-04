@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A14C5F7B-1E03-484C-B94F-80CD39E84A9E}</ProjectGuid>
+    <ProjectGuid>{CE193CA1-299B-43E5-BDB4-C332A272E677}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OnLineOrder.Models</RootNamespace>
-    <AssemblyName>OnLineOrder.Models</AssemblyName>
+    <RootNamespace>OnLinerOrder.Interfaces</RootNamespace>
+    <AssemblyName>OnLinerOrder.Interfaces</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -32,7 +32,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,12 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Customer.cs" />
-    <Compile Include="Login.cs" />
-    <Compile Include="OrderItems.cs" />
-    <Compile Include="Orders.cs" />
-    <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ICustomerRepository.cs" />
+    <Compile Include="Repositories\ILogin.cs" />
+    <Compile Include="Repositories\IOrderRepositories.cs" />
+    <Compile Include="Repositories\IProduct.cs" />
+    <Compile Include="Services\ICustomerServices.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OnLineOrder.Models\OnLineOrder.Models.csproj">
+      <Project>{A14C5F7B-1E03-484C-B94F-80CD39E84A9E}</Project>
+      <Name>OnLineOrder.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
