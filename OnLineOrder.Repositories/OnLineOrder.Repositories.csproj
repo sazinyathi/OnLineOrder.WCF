@@ -48,7 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomerRepository.cs" />
+    <Compile Include="LoginDetailsRepository.cs" />
     <Compile Include="OnLineOrderDbContext.cs" />
+    <Compile Include="OrderItemsRepository.cs" />
+    <Compile Include="OrderRepositories.cs" />
+    <Compile Include="ProductRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -59,6 +64,10 @@
     <ProjectReference Include="..\OnLineOrder.Models\OnLineOrder.Models.csproj">
       <Project>{A14C5F7B-1E03-484C-B94F-80CD39E84A9E}</Project>
       <Name>OnLineOrder.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OnLinerOrder.Interfaces\OnLinerOrder.Interfaces.csproj">
+      <Project>{ce193ca1-299b-43e5-bdb4-c332a272e677}</Project>
+      <Name>OnLinerOrder.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

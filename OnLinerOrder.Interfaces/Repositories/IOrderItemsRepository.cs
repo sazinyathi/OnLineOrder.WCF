@@ -3,8 +3,8 @@ using System.Threading.Tasks;
 
 namespace OnLinerOrder.Interfaces.Repositories
 {
-    public interface ILogin
+    public interface IOrderItemsRepository
     {
-        Task CreateLoginDetailsAsync(int customerId,Login login);
+        Task CreateOrderItemsAsync(int orderId, OrderItems orderItems);
     }
 }

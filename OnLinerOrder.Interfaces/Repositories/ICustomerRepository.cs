@@ -6,5 +6,6 @@ namespace OnLinerOrder.Interfaces.Repositories
     public interface ICustomerRepository
     {
         Task<int> CreateCustomerAsync(Customer customer);
+  
     }
 }
