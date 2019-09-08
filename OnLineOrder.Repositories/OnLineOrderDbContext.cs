@@ -11,7 +11,8 @@ namespace OnLineOrder.Repositories
     public class OnLineOrderDbContext : DbContext
     {
 
-        public OnLineOrderDbContext() : base("OnLineOrderDbContext")
+        public OnLineOrderDbContext() 
+           
         {
 
         }
@@ -21,6 +22,7 @@ namespace OnLineOrder.Repositories
         public DbSet<OrderItems> OrderItems { get; set; }
         public DbSet<Orders> Orders { get; set; }
         public DbSet<Product> Product { get; set; }
+        public DbSet<LoginSession> LoginSessions { get; set; }
 
 
     }

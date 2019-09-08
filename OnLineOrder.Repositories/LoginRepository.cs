@@ -1,29 +1,32 @@
 ﻿using OnLineOrder.Models;
 using OnLinerOrder.Interfaces.Repositories;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace OnLineOrder.Repositories
 {
-    public class LoginDetailsRepository : ILogin
+    public class LoginRepository : ILoginRepository
     {
         private readonly OnLineOrderDbContext dbContext;
-        public LoginDetailsRepository()
+        public LoginRepository()
         {
             this.dbContext = new OnLineOrderDbContext();
         }
 
-        public async Task CreateLoginDetailsAsync(int customerId, Login login)
+        
+        public async Task<Login> GetLoginDetailsByUsernameAndPasswordAsync(string username, string password)
         {
             try
             {
-                login.CustomerId = customerId;
-                dbContext.Login.Add(login);
-                await dbContext.SaveChangesAsync();
+                return dbContext.Login.Where(x => x.Username == username && x.Password == password).FirstOrDefault();
             }
-            catch (System.Exception exc)
+            catch (System.Exception)
             {
+
                 throw;
             }
+           
         }
+
     }
 }

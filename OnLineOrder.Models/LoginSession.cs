@@ -30,5 +30,6 @@ namespace OnLineOrder.Models
         public string SessionId { get; set; }
         [ForeignKey("Login")]
         public int LoginId { get; set; }
+        public Login Login { get; set; }
     }           
 }

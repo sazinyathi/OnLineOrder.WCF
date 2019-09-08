@@ -13,16 +13,9 @@ namespace OnLineOrder.Repositories
         }
         public async Task CreateOrderItemsAsync(int orderId, OrderItems orderItems)
         {
-            try
-            {
                 orderItems.OrderId = orderId;
                 dbContext.OrderItems.Add(orderItems);
                 await dbContext.SaveChangesAsync();
-            }
-            catch (System.Exception exc)
-            {
-                throw;
-            }
         }
     }
 }

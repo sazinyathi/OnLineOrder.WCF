@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace OnLineOrder.Repositories
 {
-    public class ProductRepository : IProduct
+    public class ProductRepository : IProductRepository
     {
         private readonly OnLineOrderDbContext dbContext;
         public ProductRepository()
