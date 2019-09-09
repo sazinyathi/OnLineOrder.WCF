@@ -1,24 +1,40 @@
 ﻿using OnLineOrderWCF.Models;
 using OnLineOrderWCF.Requests;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace OnLineOrderWCF.Validations
 {
     public class ValidatorOnLineOrder : IValidatorOnLineOrder
     {
-        public Product OnLineOrderProductRequest { get; set; }
+        public OnLineOrderProductRequest OnLineOrderProductRequest { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string SessionId { get; set; }
         public List<OnLineOrderError> Errors { get; set; }
-        public ValidatorOnLineOrder(Product onLineOrderProductRequest)
+        public ValidatorOnLineOrder(OnLineOrderProductRequest onLineOrderProductRequest)
         {
             Errors = new List<OnLineOrderError>();
             OnLineOrderProductRequest = onLineOrderProductRequest;
         }
-        public bool IsProductValid()
+        public ValidatorOnLineOrder(string sessionId)
         {
-            ValidateProduct(OnLineOrderProductRequest);
+            Errors = new List<OnLineOrderError>();
+            SessionId = sessionId;
+        }
+        public ValidatorOnLineOrder(string username, string password)
+        {
+            Errors = new List<OnLineOrderError>();
+            Username = username;
+            Password = password;
+        }
+        public bool IsUsernameAndPasswordIsNotNull()
+        {
+            CheckIfUsernameAndPassword(Username, Password);
+            return LogErrors();
+        }
+
+        public bool LogErrors()
+        {
             if (Errors.Count > 0)
             {
                 return false;
@@ -29,20 +45,26 @@ namespace OnLineOrderWCF.Validations
             }
         }
 
-        public void ValidateProduct(Product onLineOrderProductRequest)
+        public bool IsProductValid()
         {
-            if(string.IsNullOrEmpty(onLineOrderProductRequest.ProductDescription))
+            ValidateProduct(OnLineOrderProductRequest);
+            return LogErrors();
+        }
+
+        public void ValidateProduct(OnLineOrderProductRequest onLineOrderProductRequest)
+        {
+            if (string.IsNullOrEmpty(onLineOrderProductRequest.ProductDescription))
             {
                 Errors.Add(CreateError(1001, "Product Description is not provided"));
             }
             else
             {
-                if(onLineOrderProductRequest.ProductDescription.Length > 50)
+                if (onLineOrderProductRequest.ProductDescription.Length > 50)
                 {
                     Errors.Add(CreateError(1002, "Product Description should not be more than 50 charactors"));
                 }
             }
-            if(string.IsNullOrEmpty(onLineOrderProductRequest.ProductName))
+            if (string.IsNullOrEmpty(onLineOrderProductRequest.ProductName))
             {
                 Errors.Add(CreateError(1003, "Product Name is not provided"));
             }
@@ -57,7 +79,7 @@ namespace OnLineOrderWCF.Validations
             {
                 Errors.Add(CreateError(1005, "Product Price is not provided"));
             }
-            
+
 
         }
 
@@ -68,5 +90,35 @@ namespace OnLineOrderWCF.Validations
             error.ErrorDescription = desc;
             return error;
         }
+
+        public void CheckIfUsernameAndPassword(string username, string password)
+        {
+            if (string.IsNullOrEmpty(username))
+            {
+                Errors.Add(CreateError(402, "Please provide the correct username"));
+            }
+            if (string.IsNullOrEmpty(password))
+            {
+                Errors.Add(CreateError(403, "Please provide the correct Password"));
+            }
+        }
+
+        public bool IsSessionId()
+        {
+            ValidateSessionId(SessionId);
+            return LogErrors();
+        }
+
+       
+
+        public void ValidateSessionId(string sessionId)
+        {
+            if (string.IsNullOrEmpty(sessionId))
+            {
+                Errors.Add(CreateError(406, "Error -SessionId is null"));
+            }
+        }
+
+        
     }
 }

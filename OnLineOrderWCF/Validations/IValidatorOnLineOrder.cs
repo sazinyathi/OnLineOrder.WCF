@@ -1,9 +1,13 @@
-﻿using OnLineOrderWCF.Requests;
+﻿using OnLineOrderWCF.Models;
+using OnLineOrderWCF.Requests;
 
 namespace OnLineOrderWCF.Validations
 {
     public interface IValidatorOnLineOrder
     {
-        void ValidateProduct(Product onLineOrderProductRequest);
+        void CheckIfUsernameAndPassword(string username, string password);
+        void ValidateProduct(OnLineOrderProductRequest onLineOrderProductRequest);
+        void ValidateSessionId(string sessionId);
+        bool LogErrors();
     }
 }

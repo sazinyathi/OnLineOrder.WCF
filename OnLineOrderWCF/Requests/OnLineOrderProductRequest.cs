@@ -16,6 +16,6 @@ namespace OnLineOrderWCF.Requests
         [DataMember]
         public string ProductDescription { get; set; }
         [DataMember]
-        public float Price { get; set; }
+        public decimal Price { get; set; }
     }
 }

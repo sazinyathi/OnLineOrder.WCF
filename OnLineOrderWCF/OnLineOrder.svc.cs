@@ -1,8 +1,10 @@
 ﻿using System;
 using OnLineOrder.Models;
 using OnLineOrder.Services;
+using OnLineOrderWCF.Dto;
 using OnLineOrderWCF.Models;
 using OnLineOrderWCF.Requests;
+using OnLineOrderWCF.Responses;
 using OnLineOrderWCF.Validations;
 
 namespace OnLineOrderWCF
@@ -12,49 +14,45 @@ namespace OnLineOrderWCF
         private readonly LoginService loginService;
         private readonly LoginSessionService loginSessionService;
         private readonly ProductService productService;
+
         public OnLineOrder()
         {
             loginService = new LoginService();
             loginSessionService = new LoginSessionService();
             productService = new ProductService();
         }
-        public OnLineOrderLoginSesssionResponse CreateLoginSession(string username, string passsword)
+        public OnLineOrderLoginSesssionResponse CreateLoginSession(string username, string password)
         {
             var response = new OnLineOrderLoginSesssionResponse();
+            var validate = new ValidatorOnLineOrder(username, password);
             try
             {
-                if (!string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(passsword))
-                {
-                    var login = loginService.GetLoginDetailsByUsernameAndPasswordAsync(username, passsword);
-                    if (login.Result == null)
-                        response.Errors.Add(CreateError(004, "No username and Password Found"));
-                    else
-                    {
-                        var sessionID = loginSessionService.CreateLoginSessionAsync(login.Result.LoginId, new LoginSession
-                        {
-                            RowCreateDate = DateTime.Now,
-                            RowLastUpdateDate = DateTime.Now,
-                            SessionId = Guid.NewGuid().ToString(),
-                            SessionKey = Guid.NewGuid().ToString(),
-                            SessionLastAction = DateTime.Now,
-                            SessionStart = DateTime.Now
-                        });
-                        response.OnLineOrderLoginSesssionKey = sessionID.Result;
-                    }
-
-
-                }
+                if (!validate.IsUsernameAndPasswordIsNotNull())
+                { response.Errors = validate.Errors; }
                 else
                 {
-                    response.Errors.Add(CreateError(003, "Username And Password - not supplied"));
-                    //LogMessage("Uploading FingerprintsAndSupportingDocuments: ", "Session Key not supplied");
+                    if (loginService.GetLoginDetailsByUsernameAndPasswordAsync(username, password).Result == null)
+                    { response.Errors.Add(CreateError(401, "No username and Password Found")); }
+                    else
+                    {
+                        var sessionID = loginSessionService.CreateLoginSessionAsync(
+                            loginService.GetLoginDetailsByUsernameAndPasswordAsync(username, password).Result.LoginId,
+                            new LoginSession
+                            {
+                                RowCreateDate = DateTime.Now,
+                                RowLastUpdateDate = DateTime.Now,
+                                SessionId = Guid.NewGuid().ToString(),
+                                SessionKey = Guid.NewGuid().ToString(),
+                                SessionLastAction = DateTime.Now,
+                                SessionStart = DateTime.Now
+                            });
+                        response.OnLineOrderLoginSesssionKey = sessionID.Result;
+                    }
                 }
             }
             catch (Exception ex)
             {
-                response.Errors.Add(CreateError(000, "Integrator - Error : " + ex.Message));
-                // LogMessage("Uploading FingerprintsAndSupportingDocuments: ", ex.Message);
-
+                response.Errors.Add(CreateError(000, "OnLineOrder - Error : " + ex.Message));
             }
             return response;
         }
@@ -68,34 +66,61 @@ namespace OnLineOrderWCF
         }
 
 
-        public OnLineOrderCreateProductResponse CreateProduct(Requests.Product onLineOrderRequest)
+        public OnLineOrderCreateProductResponse CreateProduct(OnLineOrderProductRequest onLineOrderRequest)
         {
             var response = new OnLineOrderCreateProductResponse();
+            var validate = new ValidatorOnLineOrder(onLineOrderRequest.SessionId);
             try
             {
-                var login = loginSessionService.GetLoginSesionBySenssionIdAsync(onLineOrderRequest.SessionId);
-                if (login == null)
-                    response.Errors.Add(CreateError(005, "No username and Password Found"));
+                if (!validate.IsSessionId())
+                { response.Errors = validate.Errors; }
                 else
                 {
-                    var validator = new ValidatorOnLineOrder(onLineOrderRequest);
-                    if (validator.IsProductValid())
-                    {
-                        productService.CreateProductAsync(onLineOrderRequest);
-                    }
+                    if (loginSessionService.GetLoginSesionBySenssionIdAsync(onLineOrderRequest.SessionId).Result == null)
+                    { response.Errors.Add(CreateError(005, "No username and Password Found")); }
                     else
                     {
-                        response.Errors = validator.Errors;
+                        var validator = new ValidatorOnLineOrder(onLineOrderRequest);
+                        if (validator.IsProductValid())
+                        {
+                            productService.CreateProductAsync(ProductDto.MapOnLineOrderRequest(onLineOrderRequest));
+                        }
+                        else
+                        {
+                            response.Errors = validator.Errors;
+                        }
                     }
                 }
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                response.Errors.Add(CreateError(000, "OnLineOrder - Error : " + ex.Message));
+            }
+            return response;
+        }
+
+        public OnLineOrderGetAvailableProductsResponse GetAllAvailableProducts(string sessionId)
+        {
+            var validate = new ValidatorOnLineOrder(sessionId);
+            var response = new OnLineOrderGetAvailableProductsResponse();
+            try
+            {
+                if (!validate.IsSessionId())
+                { response.Errors = validate.Errors; }
+                else
+                {
+                    var products = productService.GetAllProductAsync();
+                    response.GetAllProducts = AvailableProductsResponsesDtos.MapOnLineOrderRequest(productService.GetAllProductAsync());
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Errors.Add(CreateError(000, "OnLineOrder - Error : " + ex.Message));
             }
             return response;
         }
     }
 }
+

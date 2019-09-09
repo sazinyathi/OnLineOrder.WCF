@@ -1,5 +1,6 @@
 ﻿using OnLineOrderWCF.Models;
 using OnLineOrderWCF.Requests;
+using OnLineOrderWCF.Responses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,9 @@ namespace OnLineOrderWCF
         [OperationContract]
         OnLineOrderLoginSesssionResponse CreateLoginSession(string username, string passsword);
         [OperationContract]
-        OnLineOrderCreateProductResponse CreateProduct(Product onLineOrderRequest);
+        OnLineOrderCreateProductResponse CreateProduct(OnLineOrderProductRequest onLineOrderRequest);
+        [OperationContract]
+        OnLineOrderGetAvailableProductsResponse GetAllAvailableProducts(string sessionId);
     }
 
 

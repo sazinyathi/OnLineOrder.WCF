@@ -1,35 +1,42 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using OnLineOrder.Models;
+using OnLineOrder.Repositories;
+using OnLinerOrder.Interfaces.Repositories;
 using OnLinerOrder.Interfaces.Services;
 
 namespace OnLineOrder.Services
 {
     public class ProductService : IProductService
     {
-        public Task CreateProductAsync(Product product)
+        private readonly IProductRepository productRepository;
+        public ProductService()
         {
-            throw new System.NotImplementedException();
+            productRepository = new ProductRepository();
+        }
+        public async Task CreateProductAsync(Product product)
+        {
+            await productRepository.CreateProductAsync(product);
         }
 
-        public Task DeleteProductAsync(int id)
+        public async Task DeleteProductAsync(int id)
         {
-            throw new System.NotImplementedException();
+           await productRepository.DeleteProductAsync(id);
         }
 
-        public Task<IEnumerable<Product>> GetAllProductAsync()
+        public async Task<IEnumerable<Product>> GetAllProductAsync()
         {
-            throw new System.NotImplementedException();
+           return await productRepository.GetAllProductAsync();
         }
 
-        public Task<Product> GetProductIDAsync(int id)
+        public async Task<Product> GetProductIDAsync(int id)
         {
-            throw new System.NotImplementedException();
+           return await productRepository.GetProductIDAsync(id);
         }
 
-        public Task UpdateProductAsync(Product updatedEvent)
+        public async Task UpdateProductAsync(Product updatedProduct)
         {
-            throw new System.NotImplementedException();
+           await productRepository.UpdateProductAsync(updatedProduct);
         }
     }
 }
