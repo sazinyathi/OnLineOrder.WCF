@@ -67,12 +67,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\OnLineOrderError.cs" />
-    <Compile Include="Models\OnLineOrderLoginSesssionResponse.cs" />
+    <Compile Include="Responses\OnLineOrderCreateProductResponse.cs" />
+    <Compile Include="Requests\Product.cs" />
+    <Compile Include="Responses\OnLineOrderLoginSesssionResponse.cs" />
     <Compile Include="OnLineOrder.svc.cs">
       <DependentUpon>OnLineOrder.svc</DependentUpon>
     </Compile>
     <Compile Include="IOnLineOrder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validations\IValidatorOnLineOrder.cs" />
+    <Compile Include="Validations\ValidatorOnLineOrder.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

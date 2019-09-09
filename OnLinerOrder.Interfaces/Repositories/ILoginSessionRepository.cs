@@ -10,5 +10,6 @@ namespace OnLinerOrder.Interfaces.Repositories
    public interface ILoginSessionRepository
     {
         Task<string> CreateLoginSessionAsync(int loginId, LoginSession loginSession);
+        Task<LoginSession> GetLoginSesionBySenssionIdAsync(string sessinonId);
     }
 }

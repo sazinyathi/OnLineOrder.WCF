@@ -52,6 +52,7 @@
     <Compile Include="Services\ICustomerServices.cs" />
     <Compile Include="Services\ILoginService.cs" />
     <Compile Include="Services\ILoginSessionService.cs" />
+    <Compile Include="Services\IProductService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OnLineOrder.Models\OnLineOrder.Models.csproj">

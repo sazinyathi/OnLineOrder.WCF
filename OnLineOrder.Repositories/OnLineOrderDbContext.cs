@@ -1,18 +1,12 @@
 ﻿using OnLineOrder.Models;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnLineOrder.Repositories
 {
     public class OnLineOrderDbContext : DbContext
     {
 
-        public OnLineOrderDbContext() 
-           
+        public OnLineOrderDbContext()   
         {
 
         }

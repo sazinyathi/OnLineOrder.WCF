@@ -1,9 +1,7 @@
 ﻿using OnLineOrder.Models;
 using OnLinerOrder.Interfaces.Repositories;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace OnLineOrder.Repositories
@@ -24,6 +22,18 @@ namespace OnLineOrder.Repositories
                 dbContext.LoginSessions.Add(loginSession);
                 await dbContext.SaveChangesAsync();
                 return loginSession.SessionId;
+            }
+            catch (Exception exc)
+            {
+                throw;
+            }
+        }
+
+        public async Task<LoginSession> GetLoginSesionBySenssionIdAsync(string sessinonId)
+        {
+            try
+            {
+                return dbContext.LoginSessions.Where(x => x.SessionId == sessinonId).Take(1).FirstOrDefault();
             }
             catch (Exception exc)
             {
