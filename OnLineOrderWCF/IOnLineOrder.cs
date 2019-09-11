@@ -22,7 +22,9 @@ namespace OnLineOrderWCF
         OnLineOrderCreateProductResponse CreateProduct(OnLineOrderProductRequest onLineOrderRequest);
         [OperationContract]
         OnLineOrderGetAvailableProductsResponse GetAllAvailableProducts(string sessionId);
+        [OperationContract]
+        OnLineOrderGetAvailableProductsByProductIdResponse GetAvailableProductsByProductId(string sessionId, int productId);
     }
 
-
+    
 }

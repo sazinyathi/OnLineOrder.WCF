@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@if (ViewData["students"] != null)
+{
+
+    <div>
+        @foreach (var item in ViewData["students"] as string)
+        {
+            <label>HGGGG</label>
+        }
+
+    </div>
+}
+
+<div class="jumbotron">
+    <h1>OnLineOrder -Web Application</h1>
+    <p class="lead">OnLineOrder -Web Application is calling a Legal Window Service Communication Foundation(WCF)</p>
+
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Getting started with Legal WCF</h2>
+        <p>
+            Windows Communication Foundation (WCF) is a framework for building service-oriented applications.
+            Using WCF, you can send data as asynchronous messages from one service endpoint to another.
+            A service endpoint can be part of a continuously available service hosted by IIS, or it can be a service hosted in an application.
+        </p>
+        <p><a class="btn btn-default" href="http://localhost:64495/OnLineOrder.svc" target="_blank">Windows Services Communication Foundation &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Detailed Document</h2>
+        <p>dagfdgagfg.</p>
+        <p><a class="btn btn-default" href="#">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Web Hosting</h2>
+        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+        <p><a class="btn btn-default" href="">Learn more &raquo;</a></p>
+    </div>
+</div>

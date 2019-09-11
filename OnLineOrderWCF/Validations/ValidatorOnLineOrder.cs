@@ -27,7 +27,7 @@ namespace OnLineOrderWCF.Validations
             Username = username;
             Password = password;
         }
-        public bool IsUsernameAndPasswordIsNotNull()
+        public bool IsUsernameAndPasswordValid()
         {
             CheckIfUsernameAndPassword(Username, Password);
             return LogErrors();
@@ -103,7 +103,7 @@ namespace OnLineOrderWCF.Validations
             }
         }
 
-        public bool IsSessionId()
+        public bool IsSessionIdValidate()
         {
             ValidateSessionId(SessionId);
             return LogErrors();

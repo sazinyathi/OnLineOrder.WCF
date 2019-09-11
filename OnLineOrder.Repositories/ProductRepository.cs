@@ -40,12 +40,12 @@ namespace OnLineOrder.Repositories
 
         public async Task<IEnumerable<Product>> GetAllProductAsync()
         {
-            return await dbContext.Product.AsNoTracking().ToArrayAsync();
+            return await dbContext.Product.ToArrayAsync();
         }
 
         public async Task<Product> GetProductIDAsync(int id)
         {
-            return await dbContext.Product.AsNoTracking().Where(x =>x.ProductId == id).FirstOrDefaultAsync() ;
+            return await dbContext.Product.Where(x =>x.ProductId == id).FirstOrDefaultAsync() ;
         }
 
         public async Task UpdateProductAsync(Product updatedProduct)

@@ -27,7 +27,7 @@ namespace OnLineOrderWCF
             var validate = new ValidatorOnLineOrder(username, password);
             try
             {
-                if (!validate.IsUsernameAndPasswordIsNotNull())
+                if (!validate.IsUsernameAndPasswordValid())
                 { response.Errors = validate.Errors; }
                 else
                 {
@@ -72,7 +72,7 @@ namespace OnLineOrderWCF
             var validate = new ValidatorOnLineOrder(onLineOrderRequest.SessionId);
             try
             {
-                if (!validate.IsSessionId())
+                if (!validate.IsSessionIdValidate())
                 { response.Errors = validate.Errors; }
                 else
                 {
@@ -95,8 +95,7 @@ namespace OnLineOrderWCF
             }
             catch (Exception ex)
             {
-
-                response.Errors.Add(CreateError(000, "OnLineOrder - Error : " + ex.Message));
+                response.Errors.Add(CreateError(1000, "OnLineOrder - Error : " + ex.Message));
             }
             return response;
         }
@@ -107,17 +106,36 @@ namespace OnLineOrderWCF
             var response = new OnLineOrderGetAvailableProductsResponse();
             try
             {
-                if (!validate.IsSessionId())
+                if (!validate.IsSessionIdValidate())
                 { response.Errors = validate.Errors; }
                 else
                 {
-                    var products = productService.GetAllProductAsync();
                     response.GetAllProducts = AvailableProductsResponsesDtos.MapOnLineOrderRequest(productService.GetAllProductAsync());
                 }
             }
             catch (Exception ex)
             {
-                response.Errors.Add(CreateError(000, "OnLineOrder - Error : " + ex.Message));
+                response.Errors.Add(CreateError(1001, "OnLineOrder - Error : " + ex.Message));
+            }
+            return response;
+        }
+
+        public OnLineOrderGetAvailableProductsByProductIdResponse GetAvailableProductsByProductId(string sessionId, int productId)
+        {
+            var validate = new ValidatorOnLineOrder(sessionId);
+            var response = new OnLineOrderGetAvailableProductsByProductIdResponse();
+            try
+            {
+                if (!validate.IsSessionIdValidate())
+                { response.Errors = validate.Errors; }
+                else
+                {
+                    response.GetProduct = AvailableProductsResponsesDtos.MapOnLineOrderRequestProduct(productService.GetProductIDAsync(productId));
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Errors.Add(CreateError(1001, "OnLineOrder - Error : " + ex.Message));
             }
             return response;
         }

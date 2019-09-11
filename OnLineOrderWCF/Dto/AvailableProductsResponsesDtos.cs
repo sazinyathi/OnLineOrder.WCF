@@ -19,14 +19,26 @@ namespace OnLineOrderWCF.Dto
                 {
                     Price = item.Price,
                     ProductDescription = item.ProductDescription,
-                    ProductName = item.ProductName
+                    ProductName = item.ProductName,
+                    ProductId = item.ProductId
+                    
                 };
                 productsResponses.Add(products);
             }
-            
+
             return productsResponses;
         }
 
-        
+
+        public static ProductsResponses MapOnLineOrderRequestProduct(Task<Product> task)
+        {
+            return new ProductsResponses
+            {
+                Price = task.Result.Price,
+                ProductDescription = task.Result.ProductDescription,
+                ProductName = task.Result.ProductName,
+                ProductId = task.Result.ProductId
+            };
+        }
     }
 }

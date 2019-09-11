@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:64495/OnLineOrder.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/OnLineOrderWCF.Models" />
+  <xs:import schemaLocation="http://localhost:64495/OnLineOrder.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/OnLineOrderWCF.Requests" />
+  <xs:import schemaLocation="http://localhost:64495/OnLineOrder.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/OnLineOrderWCF" />
+  <xs:import schemaLocation="http://localhost:64495/OnLineOrder.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/OnLineOrderWCF.Responses" />
+  <xs:element name="CreateLoginSession">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="passsword" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateLoginSessionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/OnLineOrderWCF.Models" minOccurs="0" name="CreateLoginSessionResult" nillable="true" type="q1:OnLineOrderLoginSesssionResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateProduct">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/OnLineOrderWCF.Requests" minOccurs="0" name="onLineOrderRequest" nillable="true" type="q2:OnLineOrderProductRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateProductResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/OnLineOrderWCF" minOccurs="0" name="CreateProductResult" nillable="true" type="q3:OnLineOrderCreateProductResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllAvailableProducts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllAvailableProductsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/OnLineOrderWCF.Responses" minOccurs="0" name="GetAllAvailableProductsResult" nillable="true" type="q4:OnLineOrderGetAvailableProductsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAvailableProductsByProductId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="productId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAvailableProductsByProductIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/OnLineOrderWCF.Responses" minOccurs="0" name="GetAvailableProductsByProductIdResult" nillable="true" type="q5:OnLineOrderGetAvailableProductsByProductIdResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

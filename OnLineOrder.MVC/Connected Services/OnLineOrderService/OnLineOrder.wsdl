@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="OnLineOrder" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:64495/OnLineOrder.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:64495/OnLineOrder.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:64495/OnLineOrder.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/OnLineOrderWCF.Models" />
+      <xsd:import schemaLocation="http://localhost:64495/OnLineOrder.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/OnLineOrderWCF.Requests" />
+      <xsd:import schemaLocation="http://localhost:64495/OnLineOrder.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/OnLineOrderWCF" />
+      <xsd:import schemaLocation="http://localhost:64495/OnLineOrder.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/OnLineOrderWCF.Responses" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IOnLineOrder_CreateLoginSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateLoginSession" />
+  </wsdl:message>
+  <wsdl:message name="IOnLineOrder_CreateLoginSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateLoginSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOnLineOrder_CreateProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateProduct" />
+  </wsdl:message>
+  <wsdl:message name="IOnLineOrder_CreateProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOnLineOrder_GetAllAvailableProducts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAvailableProducts" />
+  </wsdl:message>
+  <wsdl:message name="IOnLineOrder_GetAllAvailableProducts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAvailableProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOnLineOrder_GetAvailableProductsByProductId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailableProductsByProductId" />
+  </wsdl:message>
+  <wsdl:message name="IOnLineOrder_GetAvailableProductsByProductId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailableProductsByProductIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IOnLineOrder">
+    <wsdl:operation name="CreateLoginSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOnLineOrder/CreateLoginSession" message="tns:IOnLineOrder_CreateLoginSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOnLineOrder/CreateLoginSessionResponse" message="tns:IOnLineOrder_CreateLoginSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOnLineOrder/CreateProduct" message="tns:IOnLineOrder_CreateProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOnLineOrder/CreateProductResponse" message="tns:IOnLineOrder_CreateProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAvailableProducts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOnLineOrder/GetAllAvailableProducts" message="tns:IOnLineOrder_GetAllAvailableProducts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOnLineOrder/GetAllAvailableProductsResponse" message="tns:IOnLineOrder_GetAllAvailableProducts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableProductsByProductId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOnLineOrder/GetAvailableProductsByProductId" message="tns:IOnLineOrder_GetAvailableProductsByProductId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOnLineOrder/GetAvailableProductsByProductIdResponse" message="tns:IOnLineOrder_GetAvailableProductsByProductId_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IOnLineOrder" type="tns:IOnLineOrder">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateLoginSession">
+      <soap:operation soapAction="http://tempuri.org/IOnLineOrder/CreateLoginSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateProduct">
+      <soap:operation soapAction="http://tempuri.org/IOnLineOrder/CreateProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAvailableProducts">
+      <soap:operation soapAction="http://tempuri.org/IOnLineOrder/GetAllAvailableProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableProductsByProductId">
+      <soap:operation soapAction="http://tempuri.org/IOnLineOrder/GetAvailableProductsByProductId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OnLineOrder">
+    <wsdl:port name="BasicHttpBinding_IOnLineOrder" binding="tns:BasicHttpBinding_IOnLineOrder">
+      <soap:address location="http://localhost:64495/OnLineOrder.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

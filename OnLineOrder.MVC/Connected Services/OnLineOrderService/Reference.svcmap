@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="66e8ea6c-8a8f-46eb-ad06-558aaa8f2d08" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:64495/OnLineOrder.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="OnLineOrder.xsd" MetadataType="Schema" ID="1a646e38-fc84-49aa-b7bf-7aade506bae4" SourceId="1" SourceUrl="http://localhost:64495/OnLineOrder.svc?xsd=xsd3" />
+    <MetadataFile FileName="OnLineOrder.wsdl" MetadataType="Wsdl" ID="aa01ff54-0e2b-48c0-a9c4-3465eeaa225f" SourceId="1" SourceUrl="http://localhost:64495/OnLineOrder.svc?wsdl" />
+    <MetadataFile FileName="OnLineOrder1.xsd" MetadataType="Schema" ID="38b0f9dc-50eb-4e07-b55e-b9342738b4ec" SourceId="1" SourceUrl="http://localhost:64495/OnLineOrder.svc?xsd=xsd2" />
+    <MetadataFile FileName="OnLineOrder2.xsd" MetadataType="Schema" ID="5ab8362c-a142-488e-8eeb-0b7043b67d03" SourceId="1" SourceUrl="http://localhost:64495/OnLineOrder.svc?xsd=xsd5" />
+    <MetadataFile FileName="OnLineOrder3.xsd" MetadataType="Schema" ID="d192dabb-67f7-45be-bad1-4462f81b5748" SourceId="1" SourceUrl="http://localhost:64495/OnLineOrder.svc?xsd=xsd0" />
+    <MetadataFile FileName="OnLineOrder.disco" MetadataType="Disco" ID="61611a0c-9664-4d74-b6f9-4d6ef6b10f8f" SourceId="1" SourceUrl="http://localhost:64495/OnLineOrder.svc?disco" />
+    <MetadataFile FileName="OnLineOrder4.xsd" MetadataType="Schema" ID="140a8bf1-87d2-4b98-b876-4e1374f730a5" SourceId="1" SourceUrl="http://localhost:64495/OnLineOrder.svc?xsd=xsd1" />
+    <MetadataFile FileName="OnLineOrder5.xsd" MetadataType="Schema" ID="f2c44222-1bf1-4ace-b306-a90774759405" SourceId="1" SourceUrl="http://localhost:64495/OnLineOrder.svc?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

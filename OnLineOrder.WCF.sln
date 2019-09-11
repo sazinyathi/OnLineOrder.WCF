@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29025.244
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnLineOrderWCF", "OnLineOrderWCF\OnLineOrderWCF.csproj", "{615DF610-E0C6-47DA-8927-CBF095124461}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Legacy.OnLineOrder.WCF", "OnLineOrderWCF\Legacy.OnLineOrder.WCF.csproj", "{615DF610-E0C6-47DA-8927-CBF095124461}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnLinerOrder.Interfaces", "OnLinerOrder.Interfaces\OnLinerOrder.Interfaces.csproj", "{CE193CA1-299B-43E5-BDB4-C332A272E677}"
 EndProject
@@ -12,6 +12,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnLineOrder.Repositories", "OnLineOrder.Repositories\OnLineOrder.Repositories.csproj", "{E0643020-0B7D-4293-9FE4-7740288FF5D9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnLineOrder.Services", "OnLineOrder.Services\OnLineOrder.Services.csproj", "{F47D2702-7888-490D-8426-61AB6A598AAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnLineOrder.MVC", "OnLineOrder.MVC\OnLineOrder.MVC.csproj", "{FDE97DC9-FD84-4B8E-8CE8-532F61949B64}"
+	ProjectSection(ProjectDependencies) = postProject
+		{615DF610-E0C6-47DA-8927-CBF095124461} = {615DF610-E0C6-47DA-8927-CBF095124461}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +44,10 @@ Global
 		{F47D2702-7888-490D-8426-61AB6A598AAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F47D2702-7888-490D-8426-61AB6A598AAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F47D2702-7888-490D-8426-61AB6A598AAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDE97DC9-FD84-4B8E-8CE8-532F61949B64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDE97DC9-FD84-4B8E-8CE8-532F61949B64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDE97DC9-FD84-4B8E-8CE8-532F61949B64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDE97DC9-FD84-4B8E-8CE8-532F61949B64}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
