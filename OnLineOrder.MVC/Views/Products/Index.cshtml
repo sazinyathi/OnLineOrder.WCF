@@ -22,7 +22,15 @@
         </th>
         <th></th>
     </tr>
+    @if (ViewData["students"] != null)
+    {
 
+  
+            @ViewData["students"]
+
+
+    }
+    
     @foreach (var item in Model)
     {
         <tr>

@@ -34,7 +34,7 @@ namespace OnLineOrder.MVC.Controllers
                     ViewData["students"] = errorMassage.ErrorCode + " - " + errorMassage.ErrorDescription + "<br/>";
                 }
 
-                return RedirectToAction("Index", "Home");
+                return View(ViewData["students"]);
             }
         }
 
