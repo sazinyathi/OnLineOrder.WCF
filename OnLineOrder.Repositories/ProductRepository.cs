@@ -38,9 +38,9 @@ namespace OnLineOrder.Repositories
             await dbContext.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<Product>> GetAllProductAsync()
+        public async  Task<IEnumerable<Product>> GetAllProductAsync()
         {
-            return await dbContext.Product.ToArrayAsync();
+            return await dbContext.Product.ToListAsync();
         }
 
         public async Task<Product> GetProductIDAsync(int id)

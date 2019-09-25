@@ -22,24 +22,24 @@ namespace OnLineOrder.Services
 
         public async Task DeleteProductAsync(int id)
         {
-           await productRepository.DeleteProductAsync(id);
+            await productRepository.DeleteProductAsync(id);
         }
 
         public async Task<IEnumerable<Product>> GetAllProductAsync()
         {
-           return await productRepository.GetAllProductAsync();
+            return await productRepository.GetAllProductAsync();
         }
 
         public async Task<Product> GetProductIDAsync(int id)
         {
-           return await productRepository.GetProductIDAsync(id);
+            return await productRepository.GetProductIDAsync(id);
         }
 
         public async Task UpdateProductAsync(Product updatedProduct)
         {
-           await productRepository.UpdateProductAsync(updatedProduct);
+            await productRepository.UpdateProductAsync(updatedProduct);
         }
 
-        
+
     }
 }

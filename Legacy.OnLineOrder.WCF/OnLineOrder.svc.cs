@@ -110,7 +110,7 @@ namespace OnLineOrderWCF
                 { response.Errors = validate.Errors; }
                 else
                 {
-                    response.GetAllProducts = AvailableProductsResponsesDtos.MapOnLineOrderRequest(productService.GetAllProductAsync());
+                    response.GetAllProducts = ProductsResponsesDtos.MapOnLineOrderRequest(productService.GetAllProductAsync());
                 }
             }
             catch (Exception ex)
@@ -130,7 +130,7 @@ namespace OnLineOrderWCF
                 { response.Errors = validate.Errors; }
                 else
                 {
-                    response.GetProduct = AvailableProductsResponsesDtos.MapOnLineOrderRequestProduct(productService.GetProductIDAsync(productId));
+                    response.GetProduct = ProductsResponsesDtos.MapOnLineOrderRequestProduct(productService.GetProductIDAsync(productId));
                 }
             }
             catch (Exception ex)

@@ -12,39 +12,30 @@ namespace OnLineOrder.MVC.Dtos
            
             foreach (var item in onLineOrderGetAvailableProductsResponses)
             {
-                var product = new Product
-                {
-                    Price = item.Price,
-                    ProductDescription = item.ProductDescription,
-                    ProductName = item.ProductName,
-                    ProductId = item.ProductId
-                };
-                listofProducts.Add(product);
+                listofProducts.Add(MapProductResponsesToProduct(item));
             }
             return listofProducts;
 
         }
 
-        public static Product MapOnLineOrderRequestProduct(ProductsResponses task)
+        public static Product MapOnLineOrderRequestProduct(ProductsResponses productsResponses)
         {
-            var listofProducts = new List<Product>();
-            return new Product
-            {
-                Price = task.Price,
-                ProductDescription = task.ProductDescription,
-                ProductName = task.ProductName,
-                ProductId = task.ProductId
-            };
+           return MapProductResponsesToProduct(productsResponses);
         }
 
-        public static Product MapOnLineOrderRequestProductErrors(ProductsResponses task)
+        public static Product MapOnLineOrderRequestProductErrors(ProductsResponses productsResponses)
+        {
+            return MapProductResponsesToProduct(productsResponses);
+        }
+
+        private static Product MapProductResponsesToProduct(ProductsResponses productsResponses)
         {
             return new Product
             {
-                Price = task.Price,
-                ProductDescription = task.ProductDescription,
-                ProductName = task.ProductName,
-                ProductId = task.ProductId
+                Price = productsResponses.Price,
+                ProductDescription = productsResponses.ProductDescription,
+                ProductName = productsResponses.ProductName,
+                ProductId = productsResponses.ProductId
             };
         }
     }
