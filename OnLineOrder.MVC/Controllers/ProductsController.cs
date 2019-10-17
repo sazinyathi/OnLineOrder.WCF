@@ -21,7 +21,7 @@ namespace OnLineOrder.MVC.Controllers
         // GET: Products
         public ActionResult Index()
         {
-            var result = service.CreateLoginSession("zi", "Password0");
+            var result = service.CreateLoginSession("Sazi", "Password0");
             if (result.Errors.Count() == 0)
             {
                 var products = service.GetAllAvailableProducts(result.OnLineOrderLoginSesssionKey);

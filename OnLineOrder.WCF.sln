@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnLineOrder.MVC", "OnLineOr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Legacy.OnLineOrder.WCF", "Legacy.OnLineOrder.WCF\Legacy.OnLineOrder.WCF.csproj", "{615DF610-E0C6-47DA-8927-CBF095124461}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adaptor.OnLineOrder.API", "Adaptor.OnLineOrder.API\Adaptor.OnLineOrder.API.csproj", "{A9BC2DC1-1C5E-491A-AFCF-76EB34690320}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +50,10 @@ Global
 		{615DF610-E0C6-47DA-8927-CBF095124461}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{615DF610-E0C6-47DA-8927-CBF095124461}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{615DF610-E0C6-47DA-8927-CBF095124461}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9BC2DC1-1C5E-491A-AFCF-76EB34690320}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9BC2DC1-1C5E-491A-AFCF-76EB34690320}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9BC2DC1-1C5E-491A-AFCF-76EB34690320}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9BC2DC1-1C5E-491A-AFCF-76EB34690320}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
