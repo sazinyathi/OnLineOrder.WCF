@@ -1,0 +1,12 @@
+{
+  "providerId": "Microsoft.Tools.ServiceModel.Svcutil",
+  "version": "2.0.1",
+  "options": {
+    "inputs": [
+      "http://localhost:64495/OnLineOrder.svc"
+    ],
+    "outputFile": "Reference.cs",
+    "targetFramework": "netcoreapp3.0",
+    "typeReuseMode": "All"
+  }
+}
