@@ -9,6 +9,11 @@ namespace Adaptor.OnLineOrder.API.Controllers
     [Route("api/[controller]")]
     public class SampleDataController : Controller
     {
+        private readonly OnLineOrderClient onLineOrderClient;
+        public SampleDataController()
+        {
+            onLineOrderClient = new OnLineOrderClient();
+        }
         private static string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
@@ -17,6 +22,11 @@ namespace Adaptor.OnLineOrder.API.Controllers
         [HttpGet("[action]")]
         public IEnumerable<WeatherForecast> WeatherForecasts()
         {
+           var loginsession = onLineOrderClient.CreateLoginSessionAsync("Sazi", "Password0");
+           var sessionID = onLineOrderClient.GetAllAvailableProductsAsync(loginsession.Result.OnLineOrderLoginSesssionKey);
+
+          var productList =  onLineOrderClient.GetAllAvailableProductsAsync(sessionID.Result);
+
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
