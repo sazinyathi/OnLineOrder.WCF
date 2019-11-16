@@ -31,6 +31,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -102,9 +103,17 @@
       <Project>{A14C5F7B-1E03-484C-B94F-80CD39E84A9E}</Project>
       <Name>OnLineOrder.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OnLineOrder.Repository\OnLineOrder.Repository.csproj">
+      <Project>{5F2F05A4-EE68-4F47-8095-20B0EEAC2B49}</Project>
+      <Name>OnLineOrder.Repository</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OnLineOrder.Services\OnLineOrder.Services.csproj">
       <Project>{f47d2702-7888-490d-8426-61ab6a598aaf}</Project>
       <Name>OnLineOrder.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OnLinerOrder.Interfaces\OnLinerOrder.Interfaces.csproj">
+      <Project>{CE193CA1-299B-43E5-BDB4-C332A272E677}</Project>
+      <Name>OnLinerOrder.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

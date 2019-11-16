@@ -1,10 +1,12 @@
-﻿using System.Data.Entity;
-using System.Linq;
+﻿using System.Linq;
 using System.Net;
 using System.Web.Mvc;
-using OnLineOrder.MVC.DataModel;
+using OnLineOrder.Models;
 using OnLineOrder.MVC.Dtos;
 using OnLineOrder.MVC.OnLineOrderService;
+using OnLineOrder.Repository;
+using OnLineOrder.Services;
+using OnLinerOrder.Interfaces.Services;
 using Product = OnLineOrder.Models.Product;
 
 namespace OnLineOrder.MVC.Controllers
@@ -12,9 +14,11 @@ namespace OnLineOrder.MVC.Controllers
     public class ProductsController : Controller
     {
         private readonly OnLineOrderClient service;
+        private readonly ILoginService loginService;
         public ProductsController()
         {
             service = new OnLineOrderClient();
+            loginService = new LoginService();
         }
 
 

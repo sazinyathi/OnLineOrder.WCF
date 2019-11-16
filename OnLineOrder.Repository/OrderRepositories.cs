@@ -3,7 +3,7 @@ using OnLinerOrder.Interfaces.Repositories;
 using System;
 using System.Threading.Tasks;
 
-namespace OnLineOrder.Repositories
+namespace OnLineOrder.Repository
 {
     public class OrderRepositories : IOrderRepositories
     {
@@ -15,17 +15,10 @@ namespace OnLineOrder.Repositories
 
         public async Task<int> CreateOrderAsync(Orders orders)
         {
-            try
-            {
+
                 dbContext.Orders.Add(orders);
                 dbContext.SaveChanges();
                 return orders.OrderId;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
         }
     }
 }

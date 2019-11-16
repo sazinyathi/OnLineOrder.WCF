@@ -2,7 +2,7 @@
 using OnLinerOrder.Interfaces.Repositories;
 using System.Threading.Tasks;
 
-namespace OnLineOrder.Repositories
+namespace OnLineOrder.Repository
 {
     public class OrderItemsRepository : IOrderItemsRepository
     {

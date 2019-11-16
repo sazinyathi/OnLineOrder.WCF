@@ -25,7 +25,7 @@ namespace Adaptor.OnLineOrder.API.Controllers
            var loginsession = onLineOrderClient.CreateLoginSessionAsync("Sazi", "Password0");
            var sessionID = onLineOrderClient.GetAllAvailableProductsAsync(loginsession.Result.OnLineOrderLoginSesssionKey);
 
-          var productList =  onLineOrderClient.GetAllAvailableProductsAsync(sessionID.Result);
+          var productList =  onLineOrderClient.GetAllAvailableProductsAsync(sessionID.Result.ToString());
 
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast

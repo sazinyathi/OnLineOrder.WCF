@@ -6,20 +6,22 @@ using OnLineOrderWCF.Models;
 using OnLineOrderWCF.Requests;
 using OnLineOrderWCF.Responses;
 using OnLineOrderWCF.Validations;
+using OnLinerOrder.Interfaces.Services;
 
 namespace OnLineOrderWCF
 {
     public class OnLineOrder : IOnLineOrder
     {
-        private readonly LoginService loginService;
-        private readonly LoginSessionService loginSessionService;
-        private readonly ProductService productService;
+        private readonly ILoginService loginService;
+        private readonly ILoginSessionService loginSessionService;
+        private readonly IProductService productService;
 
         public OnLineOrder()
         {
             loginService = new LoginService();
             loginSessionService = new LoginSessionService();
             productService = new ProductService();
+            
         }
         public OnLineOrderLoginSesssionResponse CreateLoginSession(string username, string password)
         {
@@ -31,21 +33,22 @@ namespace OnLineOrderWCF
                 { response.Errors = validate.Errors; }
                 else
                 {
-                    if (loginService.GetLoginDetailsByUsernameAndPasswordAsync(username, password).Result == null)
+                    var test =loginService.GetAllLoginsAsync();
+                    if (loginService.GetLoginDetailsByUsernameAndPasswordAsync(username, password) == null)
                     { response.Errors.Add(CreateError(401, "No username and Password Found")); }
                     else
                     {
                         var sessionID = loginSessionService.CreateLoginSessionAsync(
-                            loginService.GetLoginDetailsByUsernameAndPasswordAsync(username, password).Result.LoginId,
-                            new LoginSession
-                            {
-                                RowCreateDate = DateTime.Now,
-                                RowLastUpdateDate = DateTime.Now,
-                                SessionId = Guid.NewGuid().ToString(),
-                                SessionKey = Guid.NewGuid().ToString(),
-                                SessionLastAction = DateTime.Now,
-                                SessionStart = DateTime.Now
-                            });
+                         loginService.GetLoginDetailsByUsernameAndPasswordAsync(username, password).Result.LoginId,
+                        new LoginSession
+                        {
+                            RowCreateDate = DateTime.Now,
+                            RowLastUpdateDate = DateTime.Now,
+                            SessionId = Guid.NewGuid().ToString(),
+                            SessionKey = Guid.NewGuid().ToString(),
+                            SessionLastAction = DateTime.Now,
+                            SessionStart = DateTime.Now
+                        });
                         response.OnLineOrderLoginSesssionKey = sessionID.Result;
                     }
                 }
@@ -130,7 +133,7 @@ namespace OnLineOrderWCF
                 { response.Errors = validate.Errors; }
                 else
                 {
-                    response.GetProduct = ProductsResponsesDtos.MapOnLineOrderRequestProduct(productService.GetProductIDAsync(productId));
+                   response.GetProduct = ProductsResponsesDtos.MapOnLineOrderRequestProduct(productService.GetProductIDAsync(productId));
                 }
             }
             catch (Exception ex)

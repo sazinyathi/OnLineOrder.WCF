@@ -33,6 +33,13 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.111.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\OnLineOrder.Repositories\bin\Debug\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6">
+      <HintPath>..\OnLineOrder.Repositories\bin\Debug\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomerServices.cs" />
     <Compile Include="LoginService.cs" />
     <Compile Include="LoginSessionService.cs" />
     <Compile Include="ProductService.cs" />
@@ -51,14 +59,17 @@
       <Project>{A14C5F7B-1E03-484C-B94F-80CD39E84A9E}</Project>
       <Name>OnLineOrder.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OnLineOrder.Repositories\OnLineOrder.Repositories.csproj">
-      <Project>{E0643020-0B7D-4293-9FE4-7740288FF5D9}</Project>
-      <Name>OnLineOrder.Repositories</Name>
+    <ProjectReference Include="..\OnLineOrder.Repository\OnLineOrder.Repository.csproj">
+      <Project>{5F2F05A4-EE68-4F47-8095-20B0EEAC2B49}</Project>
+      <Name>OnLineOrder.Repository</Name>
     </ProjectReference>
     <ProjectReference Include="..\OnLinerOrder.Interfaces\OnLinerOrder.Interfaces.csproj">
       <Project>{CE193CA1-299B-43E5-BDB4-C332A272E677}</Project>
       <Name>OnLinerOrder.Interfaces</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

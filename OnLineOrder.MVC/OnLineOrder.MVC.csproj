@@ -34,6 +34,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -136,24 +137,6 @@
     </Compile>
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
-    <Compile Include="DataModel\Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataModel\Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataModel\Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="DataModel\Product.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Dtos\MapServiceMVC.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -184,16 +167,6 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="DataModel\Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="DataModel\Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -219,13 +192,6 @@
     <None Include="Connected Services\OnLineOrderService\OnLineOrder5.xsd">
       <SubType>Designer</SubType>
     </None>
-    <EntityDeploy Include="DataModel\Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="DataModel\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -287,6 +253,18 @@
     <ProjectReference Include="..\OnLineOrder.Models\OnLineOrder.Models.csproj">
       <Project>{a14c5f7b-1e03-484c-b94f-80cd39e84a9e}</Project>
       <Name>OnLineOrder.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OnLineOrder.Repository\OnLineOrder.Repository.csproj">
+      <Project>{5f2f05a4-ee68-4f47-8095-20b0eeac2b49}</Project>
+      <Name>OnLineOrder.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OnLineOrder.Services\OnLineOrder.Services.csproj">
+      <Project>{F47D2702-7888-490D-8426-61AB6A598AAF}</Project>
+      <Name>OnLineOrder.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OnLinerOrder.Interfaces\OnLinerOrder.Interfaces.csproj">
+      <Project>{CE193CA1-299B-43E5-BDB4-C332A272E677}</Project>
+      <Name>OnLinerOrder.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

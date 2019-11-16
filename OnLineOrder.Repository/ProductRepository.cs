@@ -5,7 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace OnLineOrder.Repositories
+namespace OnLineOrder.Repository
 {
     public class ProductRepository : IProductRepository
     {
@@ -13,18 +13,14 @@ namespace OnLineOrder.Repositories
         public ProductRepository()
         {
             this.dbContext = new OnLineOrderDbContext();
+
         }
         public async Task CreateProductAsync(Product product)
         {
-            try
-            {
+         
                 dbContext.Product.Add(product);
                 await dbContext.SaveChangesAsync();
-            }
-            catch (System.Exception exc)
-            {
-                throw;
-            }
+          
         }
 
         public async Task DeleteProductAsync(int id)

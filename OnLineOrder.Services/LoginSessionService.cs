@@ -1,5 +1,5 @@
 ﻿using OnLineOrder.Models;
-using OnLineOrder.Repositories;
+using OnLineOrder.Repository;
 using OnLinerOrder.Interfaces.Repositories;
 using OnLinerOrder.Interfaces.Services;
 using System.Threading.Tasks;
